@@ -1,0 +1,13 @@
+
+.items{
+  margin-top: 10px;
+}
+.title{
+  text-align: center;
+}
+.amount{
+    text-align: right;
+}
+.description{
+    text-align: center;
+}

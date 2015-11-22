@@ -15,7 +15,6 @@ MEDIA_ROOT = BASE_DIR
 MEDIA_URL = '/media/'
 
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -61,12 +60,11 @@ WSGI_APPLICATION = 'zoomcar.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
+            'default': dj_database_url.config(
+            default='sqlite:////{0}'.format(os.path.join(BASE_DIR,
+            'db.sqlite3'))
+                                                                )
+        }
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 

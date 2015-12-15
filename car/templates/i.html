@@ -1,0 +1,125 @@
+{% load staticfiles %}
+
+
+
+<head>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/track-item.css' %}" rel="stylesheet">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.js' %}"></script>
+    <script src="{% static 'js/items.js' %}"></script>
+    <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/items.css' %}" rel="stylesheet">
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+
+
+     <script type="text/javascript">
+   $("#getting-started")
+   .countdown("2016/01/01", function(event) {
+     $(this).text(
+       event.strftime('%D days %H:%M:%S')
+     );
+   });
+</script>
+</head>
+
+<body>
+
+<div id="getting-started"></div>
+    <!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Tracker</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <form action="/sort/" method="POST">
+                    {% csrf_token %}
+                    <p>Sort By</p>
+                    <input class="btn btn-default" type="submit" name='p' value="Price">
+                    <input class="btn btn-default" type="submit" name='w' value="Weight">
+                </form>
+
+                <div class="input-group">
+                    <form action="/search" method="GET">
+                        <input type="text" class="form-control" name='q' placeholder="Search for...">
+                    </form>
+                </div>
+                </br>
+                
+                <p class="lead">Item Names</p>
+                <div class="list-group">
+
+                    {% for item in parcels %}
+                        <div name="item" canvas="map_canvas_{{ forloop.counter0 }}" lat={{ item.live_location.latitude }} lng={{ item.live_location.longitude }}>
+                            <a href="#" class="list-group-item">{{ item.name }} <p class="pull-right">Rs. {{ item.price }}</p></a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-9">
+
+                    <h1>Browse And Track Your Couriers !</h1>
+
+            </div>
+
+            {% for item in parcels %}
+            <div class="content col-md-9" id="map_canvas_{{ forloop.counter0 }}" name="extended">
+
+                <div class="thumbnail">
+                    <img src={{ item.image }} alt="">
+                    <div class="caption-full">
+                        <h4 class="pull-right">Rs. {{ item.price }}</h4>
+                        <h4><a href="#">{{ item.name }}</a>
+                        </h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    </div>
+                    <div class="well">
+                        <span class="glyphicon glyphicon-tags"> Rs.{{ item.price }}</span></br>
+                        <span class="glyphicon glyphicon-shopping-cart"> {{ item.type }}</span></br>
+                        <span class="glyphicon glyphicon-earphone"> {{ item.phone }}</span></br>
+                        <span>Weight: {{ item.weight }}</span></br>
+                    </div>
+                    <div>
+                        <div id="id_map_canvas_{{ forloop.counter0 }}" style="width:500px;height:380px;"></div>
+                    </div>
+            </div>
+        </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <hr>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Vipul Sharma 2015</p>
+                </div>
+            </div>
+        </footer>
+
+    </div> -->
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>

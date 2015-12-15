@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'car',
+    'countdown',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,7 +50,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'countdown.middleware.CountdownMiddleware',
 )
+
+import datetime
+
+COUNTDOWN_TARGET_DATE = datetime.datetime(2016, 01, 01, 00, 00, 00, 000000)
 
 ROOT_URLCONF = 'zoomcar.urls'
 

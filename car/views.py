@@ -7,13 +7,13 @@ def item_view(request):
     """
     makes api call to get items
     """
-    items = requests.get("http://zoomcar-ui.0x10.info/api/courier?type=json&query=list_parcel")
+    #items = requests.get("http://zoomcar-ui.0x10.info/api/courier?type=json&query=list_parcel")
 
     context = RequestContext(request)
-    data = items.json()
-    return render_to_response("items.html", data, context)
+    #data = items.json()
+    return render_to_response("items.html", context)
 
-    
+
 def search(request):
 	context = RequestContext(request)
 	result = {}
@@ -39,5 +39,5 @@ def sort_list(request):
 	if 'w' in request.POST:
 		newlist = sorted(content, key=itemgetter(u'weight'))
 		result['parcels'] = newlist
-	print result	
+	print newlist
 	return render(request, 'items.html', result)
